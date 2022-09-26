@@ -1,0 +1,15 @@
+.MainNav {
+  width: 100vw;
+  height: auto;
+}
+
+.Mainspace {
+  height: 20px;
+}
+
+.Line {
+  position: relative;
+  width: 100vw;
+  height: 1px;
+  background-color: rgb(70, 70, 70);
+}

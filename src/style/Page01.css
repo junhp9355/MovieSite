@@ -1,0 +1,50 @@
+.Page01Nav {
+  display: flex;
+  justify-content: center;
+}
+
+.movie1fixed {
+  display: flex;
+  justify-content: center;
+}
+.HeadImg {
+  width: 800px;
+  height: auto;
+  /* background-color: red; */
+}
+
+.movie1textmain {
+  color: white;
+  margin-left: 100px;
+}
+.movie1Maintext {
+  font-size: 40px;
+  margin-top: 60px;
+  /* background-color: red; */
+}
+.movie1subtext {
+  position: absolute;
+  width: 500px;
+  line-height: 30px;
+  margin-top: -50px;
+}
+.movie1videomain {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  position: relative;
+}
+.movie1video {
+  position: absolute;
+  display: flex;
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.movie1videotext {
+  position: absolute;
+  margin-top: 225px;
+  margin-left: 350px;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: underline 1px;
+}
