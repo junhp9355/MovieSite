@@ -26,7 +26,7 @@ const Page01 = () => {
                 className="movie1video"
                 width="320px"
                 height="auto"
-                src="https://www.youtube.com/embed/fzUKUfHeIYA"
+                src="https://www.youtube.com/embed/fzUKUfHeIYA?autoplay=1&mute=1"
                 title="3배 더 강력해진 하나의 팀! [공조2: 인터내셔날] 메인 예고편"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

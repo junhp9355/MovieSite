@@ -12,7 +12,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/contents" element={<ContentPage />} />
-      <Route path="/contents/:title" element={<Contents />} />
+      <Route path="/contents/:id" element={<Contents />} />
     </Routes>
   </BrowserRouter>
 );

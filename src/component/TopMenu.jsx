@@ -9,7 +9,7 @@ const TopMenu = () => {
         <nav className="TopMenuNav">
           <Link to="/">
             <div className="MainLogoFixed">
-              <img className="MainLogo" src="./img/MovieLogo.png" alt="Logo" />
+              <img className="MainLogo" src="/img/MovieLogo.png" alt="Logo" />
             </div>
           </Link>
           <div className="TopMenuFixed">

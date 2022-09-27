@@ -45,12 +45,12 @@ const ContentPage = () => {
           {movie.map((item, index) => (
             <section className="ItemList">
               <nav className="ItemFixed">
-                <img src={item.address} alt="img" className="ItemImg" />
                 <td className="ItemLink">
                   <Link
-                    to={`/contents/${item.title}`}
+                    to={`/contents/${item.id}`}
                     style={{ textDecoration: "none", cursor: "default" }}
                   >
+                    <img src={item.address} alt="img" className="ItemImg" />
                     <a href="#!" className="ItemTitle">
                       {item.title}
                     </a>
