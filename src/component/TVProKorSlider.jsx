@@ -1,12 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
 import "../style/TVProKorSlider.css";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 import "../style/slick.css";
 import "../style/slick-theme.css";
+import { Link } from "react-router-dom";
 
-const TVProKorSlider = () => {
+const TVProKorSlider = ({ movieItem }) => {
+  const tvProKorList = movieItem.slice(10);
+
   const SampleNextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -48,69 +49,20 @@ const TVProKorSlider = () => {
   return (
     <div className="TVProKorCon">
       <Slider {...settings}>
-        <div className="TVProKorFixed">
-          <img
-            className="TVProKor"
-            src="img/슬기로운의사생활.jpg"
-            alt="TVProKor"
-          />
-          <a className="KorTVProTitle" href="#!">
-            슬기로운 의사생활
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img
-            className="TVProKor"
-            src="img/슬기로운깜빵생활.jpg"
-            alt="TVProKor"
-          />
-          <a className="KorTVProTitle" href="#!">
-            슬기로운 깜빵생활
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img className="TVProKor" src="img/미스터션샤인.jpg" alt="TVProKor" />
-
-          <a className="KorTVProTitle" href="#!">
-            미스터 션사인
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img className="TVProKor" src="img/나의해방일지.jpg" alt="TVProKor" />
-          <a className="KorTVProTitle" href="#!">
-            나의 해방일지
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img className="TVProKor" src="img/갯마을차차차.jpg" alt="TVProKor" />
-          <a className="KorTVProTitle" href="#!">
-            갯마을 차차차
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img className="TVProKor" src="img/그해우리는.jpg" alt="TVProKor" />
-          <a className="KorTVProTitle" href="#!">
-            그 해 우리는
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img className="TVProKor" src="img/인사이더.jpg" alt="TVProKor" />
-          <a className="KorTVProTitle" href="#!">
-            인사이더
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img className="TVProKor" src="img/DP.jpg" alt="TVProKor" />
-          <a className="KorTVProTitle" href="#!">
-            D.P.
-          </a>
-        </div>
-        <div className="TVProKorFixed">
-          <img className="TVProKor" src="img/멜로가체질.jpg" alt="TVProKor" />
-          <a className="KorTVProTitle" href="#!">
-            멜로가체질
-          </a>
-        </div>
+        {tvProKorList.map((tvProList, index) => (
+          <div className="TVProKorFixed">
+            <Link to={`/contents/${tvProList.id}`}>
+              <img
+                className="TVProKor"
+                src={tvProList.address}
+                alt="TVProKor"
+              />
+              <a className="KorTVProTitle" href="#!">
+                {tvProList.title}
+              </a>
+            </Link>
+          </div>
+        ))}
       </Slider>
     </div>
   );

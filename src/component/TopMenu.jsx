@@ -2,7 +2,7 @@ import React from "react";
 import "../style/TopMenu.css";
 import { Link } from "react-router-dom";
 
-const TopMenu = () => {
+const TopMenu = ({ onSearch, search, onChangeSearch }) => {
   return (
     <body>
       <section>
@@ -34,10 +34,18 @@ const TopMenu = () => {
               </a>
             </div>
           </div>
-          <div className="TopSearchFixed">
-            <input className="SearchInput" />
-            <button className="SearchBt">검색</button>
-          </div>
+          <form className="TopSearchFixed" onSubmit={(e) => onSearch(e)}>
+            <input
+              className="SearchInput"
+              type="text"
+              value={search}
+              placeholder="검색"
+              onChange={onChangeSearch}
+            />
+            <button className="SearchBt" type="submit">
+              검색
+            </button>
+          </form>
         </nav>
       </section>
     </body>

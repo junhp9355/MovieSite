@@ -3,8 +3,11 @@ import Slider from "react-slick";
 import "../style/FavoriteSlider.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
 
-const FavoriteSlider = () => {
+const FavoriteSlider = ({ movieItem }) => {
+  const favoriteTvPro = movieItem.slice(0, 9);
+
   const SampleNextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -46,69 +49,20 @@ const FavoriteSlider = () => {
   return (
     <div className="FavoriteCon">
       <Slider {...settings}>
-        <div className="FavoriteFixed">
-          <img
-            className="Favorite"
-            src="img/지금우리학교는.jpg"
-            alt="TVProKor"
-          />
-          <a className="FavoriteTitle" href="#!">
-            지금 우리 학교는
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img className="Favorite" src="img/지옥.jpg" alt="TVProKor" />
-          <a className="FavoriteTitle" href="#!">
-            지옥
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img className="Favorite" src="img/스위트홈.jpg" alt="TVProKor" />
-
-          <a className="FavoriteTitle" href="#!">
-            스위트홈
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img className="Favorite" src="img/소년심팡.jpg" alt="TVProKor" />
-          <a className="FavoriteTitle" href="#!">
-            소년 심판
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img className="Favorite" src="img/오징어게임.jpg" alt="TVProKor" />
-          <a className="FavoriteTitle" href="#!">
-            오징어 게임
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img className="Favorite" src="img/나의아저씨.jpg" alt="TVProKor" />
-          <a className="FavoriteTitle" href="#!">
-            나의 아저씨
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img className="Favorite" src="img/열여덟의순간.jpg" alt="TVProKor" />
-          <a className="FavoriteTitle" href="#!">
-            열여덟의 순간
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img className="Favorite" src="img/미생.jpg" alt="TVProKor" />
-          <a className="FavoriteTitle" href="#!">
-            미생
-          </a>
-        </div>
-        <div className="FavoriteFixed">
-          <img
-            className="Favorite"
-            src="img/힘쎈여자도봉순.jpg"
-            alt="TVProKor"
-          />
-          <a className="FavoriteTitle" href="#!">
-            힘쎈여자도봉순
-          </a>
-        </div>
+        {favoriteTvPro.map((favoriteList, index) => (
+          <div className="FavoriteFixed">
+            <Link to={`/contents/${favoriteList.id}`}>
+              <img
+                className="Favorite"
+                src={favoriteList.address}
+                alt="TVProKor"
+              />
+              <a className="FavoriteTitle" href="#!">
+                {favoriteList.title}
+              </a>
+            </Link>
+          </div>
+        ))}
       </Slider>
     </div>
   );

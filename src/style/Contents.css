@@ -21,6 +21,8 @@
   position: absolute;
   margin-top: 50px;
   margin-left: 80px;
+  width: 500px;
+  height: 150px;
 }
 .ContentsMainLogo {
   position: relative;
@@ -28,11 +30,12 @@
   height: auto;
 }
 .ContentsMainText {
-  margin-top: 28px;
-  font-size: 32px;
-  margin-left: -15px;
-  font-weight: bold;
+  margin-top: 44px;
+  font-size: 55px;
+  margin-left: -10px;
+  /* font-weight: bold; */
   color: lightgray;
+  font-family: "Arirang";
 }
 .ContentsBackFixed {
   display: flex;
@@ -96,9 +99,9 @@
   margin-top: -2px;
 }
 
-.gradevertical {
+/* .gradevertical {
   margin-top: -3px;
-}
+} */
 
 .ContentsActorInfo {
   margin-top: 20px;
@@ -130,7 +133,7 @@
   align-items: center;
   width: 100vw;
   height: auto;
-  margin-top: 280px;
+  margin-top: 350px;
 }
 
 .BuyText {
@@ -181,6 +184,6 @@
   right: -200px;
   top: 0px;
   z-index: 1;
-  width: 500px;
+  width: 800px;
   height: 1200px;
 }
