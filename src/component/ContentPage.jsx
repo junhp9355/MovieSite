@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../style/ContentPage.css";
 import TopMenu from "./TopMenu";
+import FavoriteButton from "./FavoriteButton";
 
 const ContentPage = () => {
   const [movie, setMovie] = useState([]);
@@ -34,6 +35,22 @@ const ContentPage = () => {
   if (isLoading) {
     return <>Loading...</>;
   }
+
+  const onAddContent = async (id) => {
+    try {
+      const data = await axios.post(`http://localhost:4000/movielike/${id}`, {
+        item,
+      });
+      console.log(data);
+    } catch (e) {
+      setError(e);
+    }
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    onAddContent();
+  };
   return (
     <body className="ContentPage">
       <TopMenu />
@@ -58,6 +75,11 @@ const ContentPage = () => {
                 </td>
                 <td className="ItemGrade">{item.grade}</td>
                 <td className="ItemActor">{item.actor}</td>
+                <form onSubmit={onSubmit}>
+                  <button type="submit" value={item} className="FavoriteBt">
+                    버튼
+                  </button>
+                </form>
               </nav>
             </section>
           ))}

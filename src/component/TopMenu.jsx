@@ -28,11 +28,13 @@ const TopMenu = ({ onSearch, search, onChangeSearch }) => {
                 최신 등록 콘텐츠
               </a>
             </div>
-            <div className="MenuFixed">
-              <a href="#!" className="Menu04">
-                내가 찜한 콘텐츠
-              </a>
-            </div>
+            <Link to="/favoriteContents">
+              <div className="MenuFixed">
+                <a href="#!" className="Menu04">
+                  내가 찜한 콘텐츠
+                </a>
+              </div>
+            </Link>
           </div>
           <form className="TopSearchFixed" onSubmit={(e) => onSearch(e)}>
             <input
