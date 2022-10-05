@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Page02 = () => {
-  const [movieItem, setMovieItem] = useState(null);
+  const [movieItem, setMovieItem] = useState([]);
+  const [dramaItem, setDreamItem] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,7 +18,7 @@ const Page02 = () => {
           url: "http://localhost:4000/movie",
           method: "get",
         });
-        setMovieItem(data.data);
+        setDreamItem(data.data);
         setIsLoading(false);
       } catch (e) {
         setError(e);
@@ -35,6 +36,19 @@ const Page02 = () => {
     return <>Loading...</>;
   }
 
+  const getDatas = async () => {
+    try {
+      const data = await axios({
+        url: "http://localhost:4000/movies",
+        method: "get",
+      });
+      setMovieItem(data.data);
+      setIsLoading(false);
+    } catch (e) {
+      setError(e);
+    }
+  };
+
   return (
     <section className="Page02">
       <nav className="Page02Area">
@@ -42,12 +56,12 @@ const Page02 = () => {
           <div className="Page02category">한국 TV프로그램</div>
         </Link>
         <div className="Page2Fixed">
-          <TVProKorSlider movieItem={movieItem} />
+          <TVProKorSlider dramaItem={dramaItem} />
         </div>
         <br />
         <div className="Page02category02">인기 콘텐츠</div>
         <div className="Page2Fixed02">
-          <FavoriteSlider movieItem={movieItem} />
+          <FavoriteSlider dramaItem={dramaItem} />
         </div>
 
         <div className="Pageready">페이지 준비중...</div>

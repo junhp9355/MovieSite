@@ -93,6 +93,7 @@ const Main = () => {
                   </div>
                 </nav>
               </Link>
+
               <div className="Mainspace" />
               <div className="Line" />
               <div className="Mainspace" />

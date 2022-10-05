@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../style/ContentPage.css";
+import "../style/MovieContentPage.css";
 import TopMenu from "./TopMenu";
 // import heartBlack from "../asset/heart_black.png";
 // import heartRed from "../asset/heart_red.png";
 
 const ContentPage = () => {
-  const [drama, setDrama] = useState([]);
-  const [selectDrama, setSelectDrama] = useState(null);
+  const [movie, setMovie] = useState([]);
+  const [selectMovie, setSelectMovie] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,10 +17,10 @@ const ContentPage = () => {
     const getData = async () => {
       try {
         const data = await axios({
-          url: "http://localhost:4000/movie",
+          url: "http://localhost:4000/movies",
           method: "get",
         });
-        setDrama(data.data);
+        setMovie(data.data);
         setIsLoading(false);
       } catch (e) {
         setError(e);
@@ -38,60 +38,46 @@ const ContentPage = () => {
     return <>Loading...</>;
   }
 
-  const onAddContent = async (id) => {
-    try {
-      const data = await axios.post(`http://localhost:4000/dramalike/${id}`);
-      console.log(data);
-    } catch (e) {
-      setError(e);
-    }
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    onAddContent(selectDrama.id);
-  };
-
-  // const addbutton = heart ? heartBlack : heartRed;
-
   return (
-    <body className="ContentPage">
+    <body className="MovieContentPage">
       <TopMenu />
-      <section className="ContentList">
-        <div className="ContentPageTitle">
-          한국 드라마
-          <p className="ContentPageSubTitle">
-            강렬한 재미와 긴장감, 로맨스와 서스펜스가 넘치는 한국 드라마의
-            세계로 여러분을 초대합니다.
-            <br /> 웃어도 되고 울어도 되고, 비명을 질러도 됩니다. 마음껏
-            즐기세요.
+      <section className="MovieContentList">
+        <div className="MovieContentPageTitle">
+          영화
+          <p className="MovieContentPageSubTitle">
+            온몸을 옥죄는 공포에서 웃음을 부르는 코미디, 공감을 불러일으키는
+            드라마와 로맨스까지.
+            <br />
+            영화가 당신에게 말을 걸어온다.
+            <br />
+            수많은 이야기가 건네는 감동과 위로! 그것이 우리가 영화를 보는 이유.
           </p>
         </div>
 
-        <div className="ContentLine" />
+        <div className="MovieContentLine" />
 
-        <nav className="ListFixed">
-          {drama.map((item, index) => (
-            <section className="ItemList">
-              <nav className="ItemFixed">
-                <td className="ItemLink">
+        <nav className="MovieListFixed">
+          {movie.map((item, index) => (
+            <section className="MovieItemList">
+              <nav className="MovieItemFixed">
+                <td className="MovieItemLink">
                   <Link
-                    to={`/contents/${item.id}`}
+                    to={`/moviecontents/${item.id}`}
                     style={{ textDecoration: "none", cursor: "default" }}
                   >
                     <img src={item.address} alt="img" className="ItemImg" />
-                    <a href="#!" className="ItemTitle">
+                    <a href="#!" className="MovieItemTitle">
                       {item.title}
                     </a>
                   </Link>
                 </td>
-                <td className="ItemGrade">{item.grade}</td>
-                <td className="ItemActor">{item.actor}</td>
-                <form onSubmit={onSubmit}>
+                <td className="MovieItemGrade">{item.grade}</td>
+                <td className="MovieItemActor">{item.actor}</td>
+                <form>
                   <button
                     type="submit"
                     onClick={() => {
-                      setSelectDrama(item);
+                      setSelectMovie(item);
                       alert("찜한 콘텐츠에 저장되었습니다.");
                     }}
                     className="FavoriteBt"

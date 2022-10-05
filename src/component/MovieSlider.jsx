@@ -1,12 +1,12 @@
 import React from "react";
 import Slider from "react-slick";
-import "../style/FavoriteSlider.css";
+import "../style/MovieSlider.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 
-const FavoriteSlider = ({ dramaItem }) => {
-  const favoriteTvPro = dramaItem.slice(0, 9);
+const MovieSlider = ({ movieItem }) => {
+  const favoriteTvPro = movieItem.slice(0, 9);
 
   const SampleNextArrow = (props) => {
     const { className, style, onClick } = props;
@@ -67,4 +67,4 @@ const FavoriteSlider = ({ dramaItem }) => {
     </div>
   );
 };
-export default FavoriteSlider;
+export default MovieSlider;

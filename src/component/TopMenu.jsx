@@ -15,11 +15,11 @@ const TopMenu = ({ onSearch, search, onChangeSearch }) => {
           <div className="TopMenuFixed">
             <div className="MenuFixed">
               <a href="http://localhost:3000/contents" className="Menu01">
-                TV 프로그램
+                한국 드라마
               </a>
             </div>
             <div className="MenuFixed">
-              <a href="#!" className="Menu02">
+              <a href="http://localhost:3000/moviecontents" className="Menu02">
                 영화
               </a>
             </div>

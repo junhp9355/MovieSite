@@ -5,8 +5,8 @@ import "../style/slick.css";
 import "../style/slick-theme.css";
 import { Link } from "react-router-dom";
 
-const TVProKorSlider = ({ movieItem }) => {
-  const tvProKorList = movieItem.slice(10);
+const TVProKorSlider = ({ dramaItem }) => {
+  const tvProKorList = dramaItem.slice(10);
 
   const SampleNextArrow = (props) => {
     const { className, style, onClick } = props;
